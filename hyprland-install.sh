@@ -8,9 +8,9 @@
 #
 
 if command -v yay &> /dev/null; then
-    printf 'yay ist bereits installiert'
+    echo 'yay ist bereits installiert'
 else
-    printf 'yay muss installiert werden'
+    echo 'yay muss installiert werden'
     cd /opt
     sudo git clone https://aur.archlinux.org/yay.git
     sudo chown -R christian:users ./yay
@@ -18,10 +18,10 @@ else
     makepkg -si
 fi
 
-printf 'Abhängigkeiten werden installiert'
+echo 'Abhängigkeiten werden installiert\n'
 yay -S gdb ninja gcc cmake meson libxcb xcb-proto xcb-util xcb-util-keysyms libxfixes libx11 libxcomposite xorg-xinput libxrender pixman wayland-protocols cairo pango seatd libxkbcommon xcb-util-wm xorg-xwayland libinput libliftoff libdisplay-info cpio --noconfirm
 
-printf 'Hyprland wird installiert'
+echo 'Hyprland wird installiert'
 yay -S hyprland dolphin wofi hyprpaper kitty --noconfirm
 
 cd ~/dotfiles
